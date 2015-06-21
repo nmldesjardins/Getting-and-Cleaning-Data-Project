@@ -1,0 +1,25 @@
+---
+title: "README"
+author: "NML DesJardins"
+date: "June 21, 2015"
+output: html_document
+---
+This README accompanies the run_analysis script and the CodeBook for the
+Data Science Specialization - Getting and Cleaning Data - Course Project.
+
+The ***run_analysis.R*** script obtains the raw data from the source provided
+in the assignment. The original data were split into training and test samples
+to facilitate machine learning. This script merges the training and test samples
+back together into a single dataset that contains subject identifiers. 
+After merging the files, the script:  
+* Labels the variables according to the features.txt file  
+* Selects only those variables that provide means and standard deviations  
+* Generates a variable that provides descriptive names for each activity (instead
+of indexing them by number only)  
+* Writes the resulting dataset to a text file (data.txt)  
+
+Finally, the script generates a second dataset (agg_data.txt) that aggregates
+the measurements from data.txt across activity and subject. In this dataset,
+each row contains the average measurement (either the average of the mean or
+the average of the standard deviation) for each variable for a single activity
+for a single subject.

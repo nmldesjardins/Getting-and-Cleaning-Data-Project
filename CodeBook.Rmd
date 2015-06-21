@@ -1,0 +1,113 @@
+---
+title: "CodeBook"
+author: "NML DesJardins"
+date: "June 21, 2015"
+output: html_document
+---
+
+This code book accompanies the run_analysis script generated for the 
+Data Science Specialization - Getting and Cleaning Data - Course Project.
+
+The script produces two datasets: data.txt and agg_data.txt Both datasets
+contain data from all participants in the study.
+
+**data.txt**
+This dataset contains the mean and standard deviation of measurements from all 
+participants. It is structured such that each observation contains the measurements
+from one participant performing one activity at one point in time.
+
+*Measured Variables*
+The original data was obtained from 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Per the original authors, the features selected for this database come from the 
+accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These 
+time domain signals (prefix 't' to denote time) were captured at a constant rate 
+of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass 
+Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, 
+the acceleration signal was then separated into body and gravity acceleration 
+signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth 
+filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in 
+time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the 
+magnitude of these three-dimensional signals were calculated using the Euclidean 
+norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals 
+producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, 
+fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+The set of variables that were estimated from these signals are: 
+
+mean(): Mean value
+std(): Standard deviation
+
+*Subject and Activity Variables*
+Individual subjects are indexed with the variable subID.
+
+Data were collected when participants were (1) walking, (2) walking upstairs, 
+(3) walking downstairs, (4) sitting, (5) standing, and (6) laying. The factor variable 
+"activity" provides a numeric index (1:6) of the activity being measured. The
+factor variable "activityName" provides codes the activities with their 
+descriptive names.
+
+The full list of variables in data.txt are below:
+
+ [1] "subID"                           "activity"                        "tBodyAcc-mean()-X"              
+ [4] "tBodyAcc-mean()-Y"               "tBodyAcc-mean()-Z"               "tGravityAcc-mean()-X"           
+ [7] "tGravityAcc-mean()-Y"            "tGravityAcc-mean()-Z"            "tBodyAccJerk-mean()-X"          
+[10] "tBodyAccJerk-mean()-Y"           "tBodyAccJerk-mean()-Z"           "tBodyGyro-mean()-X"             
+[13] "tBodyGyro-mean()-Y"              "tBodyGyro-mean()-Z"              "tBodyGyroJerk-mean()-X"         
+[16] "tBodyGyroJerk-mean()-Y"          "tBodyGyroJerk-mean()-Z"          "tBodyAccMag-mean()"             
+[19] "tGravityAccMag-mean()"           "tBodyAccJerkMag-mean()"          "tBodyGyroMag-mean()"            
+[22] "tBodyGyroJerkMag-mean()"         "fBodyAcc-mean()-X"               "fBodyAcc-mean()-Y"              
+[25] "fBodyAcc-mean()-Z"               "fBodyAcc-meanFreq()-X"           "fBodyAcc-meanFreq()-Y"          
+[28] "fBodyAcc-meanFreq()-Z"           "fBodyAccJerk-mean()-X"           "fBodyAccJerk-mean()-Y"          
+[31] "fBodyAccJerk-mean()-Z"           "fBodyAccJerk-meanFreq()-X"       "fBodyAccJerk-meanFreq()-Y"      
+[34] "fBodyAccJerk-meanFreq()-Z"       "fBodyGyro-mean()-X"              "fBodyGyro-mean()-Y"             
+[37] "fBodyGyro-mean()-Z"              "fBodyGyro-meanFreq()-X"          "fBodyGyro-meanFreq()-Y"         
+[40] "fBodyGyro-meanFreq()-Z"          "fBodyAccMag-mean()"              "fBodyAccMag-meanFreq()"         
+[43] "fBodyBodyAccJerkMag-mean()"      "fBodyBodyAccJerkMag-meanFreq()"  "fBodyBodyGyroMag-mean()"        
+[46] "fBodyBodyGyroMag-meanFreq()"     "fBodyBodyGyroJerkMag-mean()"     "fBodyBodyGyroJerkMag-meanFreq()"
+[49] "tBodyAcc-std()-X"                "tBodyAcc-std()-Y"                "tBodyAcc-std()-Z"               
+[52] "tGravityAcc-std()-X"             "tGravityAcc-std()-Y"             "tGravityAcc-std()-Z"            
+[55] "tBodyAccJerk-std()-X"            "tBodyAccJerk-std()-Y"            "tBodyAccJerk-std()-Z"           
+[58] "tBodyGyro-std()-X"               "tBodyGyro-std()-Y"               "tBodyGyro-std()-Z"              
+[61] "tBodyGyroJerk-std()-X"           "tBodyGyroJerk-std()-Y"           "tBodyGyroJerk-std()-Z"          
+[64] "tBodyAccMag-std()"               "tGravityAccMag-std()"            "tBodyAccJerkMag-std()"          
+[67] "tBodyGyroMag-std()"              "tBodyGyroJerkMag-std()"          "fBodyAcc-std()-X"               
+[70] "fBodyAcc-std()-Y"                "fBodyAcc-std()-Z"                "fBodyAccJerk-std()-X"           
+[73] "fBodyAccJerk-std()-Y"            "fBodyAccJerk-std()-Z"            "fBodyGyro-std()-X"              
+[76] "fBodyGyro-std()-Y"               "fBodyGyro-std()-Z"               "fBodyAccMag-std()"              
+[79] "fBodyBodyAccJerkMag-std()"       "fBodyBodyGyroMag-std()"          "fBodyBodyGyroJerkMag-std()"     
+[82] "activityName" 
+
+
+**agg_data.txt**
+This dataset contains aggregated measures of the variables in data.txt. In this 
+dataset, each observation contains the average measurements for one activity for
+one subject. It contains the same index and measurement variables as data.txt. 
+However, all measurement variables are averaged over all timepoints that a 
+given participant completed a particular activity.
